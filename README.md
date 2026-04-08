@@ -1,6 +1,6 @@
 # Bazel Demo Audience Guide
 
-This repository contains a small Bazel C++ demo and a practice container so everyone can run the same commands.
+This repository contains a small Bazel C++ demo so everyone can clone the repo and run the same commands locally.
 
 ## What you will practice
 
@@ -11,7 +11,7 @@ This repository contains a small Bazel C++ demo and a practice container so ever
 
 ## Prerequisites
 
-- Docker Desktop running (or any Docker daemon)
+- Bazel installed locally
 - Git installed
 
 ## Get the code
@@ -28,23 +28,12 @@ git clone https://github.com/Ganagood/Techtalk.git
 cd Techtalk
 ```
 
-## Start practice container
-
-From the repository root:
-
-```bash
-./scripts/start_practice_container.sh
-```
-
-This opens an interactive shell in a container with Bazel preinstalled.
-Your project is mounted at `/workspace`.
-
 ## Core practice flow
 
-Inside the container:
+From your local machine:
 
 ```bash
-cd /workspace
+cd Techtalk/demo-project
 bazel query //...
 bazel run //app:demo_app
 bazel test //tests:math_utils_test
@@ -68,18 +57,16 @@ bazel aquery 'mnemonic("CppCompile", deps(//app:demo_app))'
 
 ## Common issues
 
-- Docker not running:
-  - Start Docker Desktop, then rerun `./scripts/start_practice_container.sh`.
-- Permission denied on script:
-  - Run `chmod +x scripts/start_practice_container.sh` once.
+- Bazel not installed:
+  - Install Bazel or Bazelisk first, then rerun the commands.
 - Slow first run:
   - Expected. Initial build does real work; follow-up runs are usually faster due to caching.
 
 ## Repository layout
 
 - `demo-project/` Bazel demo source and build files
-- `scripts/start_practice_container.sh` one-command container launcher
+- `scripts/start_practice_container.sh` optional container launcher if you want an isolated environment
 
 ## Exit
 
-- Type `exit` to leave the container shell.
+- Close the terminal or continue experimenting with more Bazel commands.
