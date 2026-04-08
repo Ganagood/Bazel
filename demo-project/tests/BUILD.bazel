@@ -1,0 +1,6 @@
+cc_test(
+    name = "math_utils_test",
+    size = "small",
+    srcs = ["math_utils_test.cc"],
+    deps = ["//lib:math_utils"],
+)

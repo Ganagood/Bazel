@@ -1,0 +1,2 @@
+build --announce_rc
+build --show_timestamps
