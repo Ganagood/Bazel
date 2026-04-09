@@ -5,7 +5,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 PROJECT_DIR="${ROOT_DIR}/demo-project"
 IMAGE_NAME="${IMAGE_NAME:-bazel-demo-practice}"
-CONTAINER_NAME="${1:-bazel-demo-practice}"
+TIMESTAMP="$(date +%Y%m%d-%H%M%S)"
+CONTAINER_BASE_NAME="${1:-bazel-demo-practice}"
+CONTAINER_NAME="${CONTAINER_BASE_NAME}-${TIMESTAMP}"
 
 if ! command -v docker >/dev/null 2>&1; then
   echo "docker is required to start the practice container." >&2
